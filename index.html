@@ -1,12 +1,36 @@
 <!DOCTYPE html>
-
-<title>test game 1</title>
-
 <head>
-  <link rel="stylesheet" href="style.css">
+    <title>games</title>
+    <style>
+        body{
+            font-family:Arial,sans-serif;
+            text-align:center;
+            padding:50px;
+        }
+        h1{
+            margin-bottom:30px;
+        }
+        .button-container{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            gap:15px;
+        }
+        .game-btn{
+            display:inline-block;
+            width:200px;
+            padding:15px 25px;
+            font-size:18px;
+            font-weight:bold;
+            border-radius: 8px;
+        }
+    </style>
 </head>
-
 <body>
-  <img id="player" src="player.png" alt="Player">
-  <script src = "script.js"></script>
-</body></html>
+    <h1>Welcome.</h1>
+    <div class="button-container">
+        <a href="./game-1/index.html" class="game-btn">game 1</a>
+        <a href="./game-2/index.html" class="game-btn">game 2</a>
+    </div>
+</body>
+</html>
