@@ -17,9 +17,18 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowRight' || event.key === 'd') {
     x = x + speed;
   }
-
-  x = Math.max(0,Math.min(x,window.innerWidth-playerSize));
-  y=Math.max(0,Math.min(y,window.innerHeight-playerSize));
+  if (x<0) {
+    x=0;
+  }
+  if (x>window.innerWidth-playerSize) {
+    x=window.innerWidth-playerSize;
+  }
+  if (y<0) {
+    y=0;
+  }
+  if (y>window.innerHeight-playerSize) {
+    y=window.innerHeight-playerSize;
+  }
   player.style.left = x + 'px';
   player.style.top = y + 'px';
 });
