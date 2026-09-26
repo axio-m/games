@@ -3,6 +3,7 @@ const player = document.getElementById('player');
 let x = 100;
 let y = 100;
 const speed = 15;
+const playerSize = 50
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowUp' || event.key === 'w') {
