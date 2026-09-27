@@ -6,5 +6,23 @@
     <button onclick="window.location.href='https://axio-m.github.io/games/game-1/'">game 1</button>
     <button onclick="window.location.href='https://axio-m.github.io/games/game-2/'">game 2</button>
     <button onclick="window.location.href='https://axio-m.github.io/games/game-2-copy/'">game 2 copy</button>
+    <p id="latest-commit">Loading...</p>
+    <script>
+        const user="axio-m";
+        const repo="games";
+        fetch(`https://api.github.com/repos/${user}/${repo}/commits`)
+            .then(response=>response.json())
+            .then(commits=>{
+                const latestCommit=commits[0];
+                const message=latestCommit.commit.message.split("\n")[0];
+                document.getElementById("latest-commit").textContent=
+                    "Latest commit: "+message;
+            })
+            .catch(error=>{
+                document.getElementByID("latest-commit").textContent=
+                    "Couldn't load latest commit.";
+                console.error(error);
+            });
+    </script>
 </body>
 </html>
