@@ -3,11 +3,20 @@ const world = document.getElementById('world');
 
 let x = 250;
 let y = 2500;
+
 let velocityX=0;
 let velocityY=0;
+
+let cameraX=250;
+let cameraY=2500;
+
 const maxSpeed = 3;
 const acceleration=0.2;
 const friction=0.15
+
+const cameraFollowSpeed=0.08;
+const cameraOffset=80;
+
 const playerSize = 50;
 const keys = {};
 
@@ -55,13 +64,15 @@ function gameLoop() {
   if (Math.abs(velocityY)<0.01) velocityY=0;
   x+=velocityX;
   y+=velocityY;
+  const targetCameraX=x+velocityX*cameraOffset;
+  const targetCameraY=y+velocityY*cameraOffset;
+  cameraX+=(targetCameraX-cameraX)*cameraFollowSpeed;
+  cameraY+=(targetCameraY-cameraY)*cameraFollowSpeed;
   const screenCenterX=window.innerWidth/2;
   const screenCenterY=window.innerHeight/2;
-  player.style.left=x+'px';
-  player.style.top=y+'px';
   world.style.transform=
-    `translate(${screenCenterX-x-playerSize/2}px,
-      ${screenCenterY-y-playerSize/2}px)`;
+    `translate(${screenCenterX-cameraX-playerSize/2}px,
+      ${screenCenterY-cameraY-playerSize/2}px)`;
   requestAnimationFrame(gameLoop);
 }
 
