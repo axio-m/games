@@ -15,7 +15,6 @@ const acceleration=0.2;
 const friction=0.15
 
 const cameraFollowSpeed=0.08;
-const cameraOffset=-40;
 
 const playerSize = 50;
 const keys = {};
@@ -66,10 +65,8 @@ function gameLoop() {
   y+=velocityY;
   player.style.left=x+'px';
   player.style.top=y+'px';
-  const targetCameraX=x+velocityX*cameraOffset;
-  const targetCameraY=y+velocityY*cameraOffset;
-  cameraX+=(targetCameraX-cameraX)*cameraFollowSpeed;
-  cameraY+=(targetCameraY-cameraY)*cameraFollowSpeed;
+  cameraX+=(x-cameraX)*cameraFollowSpeed;
+  cameraY+=(y-cameraY)*cameraFollowSpeed;
   const screenCenterX=window.innerWidth/2;
   const screenCenterY=window.innerHeight/2;
   world.style.transform=
