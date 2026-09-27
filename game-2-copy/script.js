@@ -15,7 +15,7 @@ const acceleration=0.2;
 const friction=0.15
 
 const cameraFollowSpeed=0.08;
-const cameraOffset=80;
+const cameraOffset=-40;
 
 const playerSize = 50;
 const keys = {};
