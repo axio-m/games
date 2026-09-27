@@ -65,7 +65,7 @@ function gameLoop() {
   x+=velocityX;
   y+=velocityY;
   player.style.left=x+'px';
-  player.styel.top=y+'px';
+  player.style.top=y+'px';
   const targetCameraX=x+velocityX*cameraOffset;
   const targetCameraY=y+velocityY*cameraOffset;
   cameraX+=(targetCameraX-cameraX)*cameraFollowSpeed;
