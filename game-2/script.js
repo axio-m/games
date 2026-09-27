@@ -1,8 +1,8 @@
 const player = document.getElementById('player');
 const world = document.getElementById('world');
 
-let x = 100;
-let y = 100;
+let x = 250;
+let y = 2500;
 const speed = 3;
 const playerSize = 50;
 const keys = {};
